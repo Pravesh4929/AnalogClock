@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: #f3f2e5;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: #212121; */
+    background-image: url(./background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    position: relative;
+}
+
+.clock{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    background-image: url(./image.png);
+    background-size: cover;
+    border : 5px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: borderColorAnimation 3s infinite;
+}
+
+@keyframes borderColorAnimation {
+    0% {
+      border-color: rgba(224, 204, 20, 0.973); /* Red */
+    }
+    25% {
+      border-color: rgba(177, 36, 55, 0.8); /* Green */
+    }
+    50% {
+      border-color: rgba(226, 123, 5, 0.8); /* Blue */
+    }
+    75% {
+      border-color: rgba(255, 255, 0, 0.8); /* Yellow */
+    }
+    100% {
+      border-color: rgba(230, 35, 10, 0.726); /* Back to Red */ 
+    }
+  }
+
+.clock span{
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i))); 
+    inset: 12px;
+    text-align: center;
+}
+
+.clock span b{
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+    font-size: 20px;
+}
+
+.clock::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.hand{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.hand i{
+    position: absolute;
+    background-color: var(--clr);
+    width: 4px;
+    height: var(--h);
+    border-radius: 8px;
+}
